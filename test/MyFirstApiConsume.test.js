@@ -21,7 +21,7 @@ it('Consume GET Service with query parameters', async () => {
     city: 'New York'
   };
 
-  const response = await agent.get('https://httpbin.org/get').query(query);
+  const response = await agent.get('https://httpbin.org/get/').query(query);
 
   expect(response.status).to.equal(statusCode.OK);
   expect(response.body.args).to.eql(query);
