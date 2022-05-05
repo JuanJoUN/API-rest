@@ -24,6 +24,7 @@
   "homepage": "https://github.com/JuanJoUN/API-rest#readme",
   "devDependencies": {
     "chai": "^4.3.6",
+    "chai-http": "github:chaijs/chai-http",
     "eslint": "^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
