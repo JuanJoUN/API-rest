@@ -1,4 +1,4 @@
-const itemSchema = {
+const itemListSchema = {
     "type": "array",
     "items": [
       {
@@ -28,4 +28,4 @@ const itemSchema = {
   }
   
 
-exports.itemSchema = itemSchema;
+exports.itemListSchema = itemListSchema;
