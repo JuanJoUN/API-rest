@@ -1,6 +1,5 @@
 
   const listPublicEventsSchema = {
-    "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "array",
     "items": [
       {
