@@ -1,9 +1,10 @@
 const agent = require('superagent');
 const chai = require('chai');
+const jsonSchema = require('chai-json-schema');
 const { listPublicEventsSchema } = require('../schema/ListPublicEvents.schema');
 
 const { expect } = chai;
-chai.use(require('chai-json-schema'));
+chai.use(jsonSchema);
 
 const urlBase = 'https://api.github.com';
 
@@ -18,6 +19,6 @@ describe('Given event Github API resources', () => {
         .auth('token', process.env.ACCESS_TOKEN);
     });
 
-    it('then the body should have a schema', () => expect(response).to.be.jsonSchema(listPublicEventsSchema));
+    it('then the body should have a schema', () => expect(response.body).to.be.jsonSchema(listPublicEventsSchema));
   });
 });

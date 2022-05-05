@@ -1,5 +1,4 @@
 const agent = require('superagent');
-
 const statusCode = require('http-status-codes');
 const { expect } = require('chai');
 
@@ -19,7 +18,7 @@ describe('Github Api Test', () => {
     });
 
     it('Via OAuth2 Tokens by parameter', () => agent.get(`${urlBase}/repos/${githubUserName}/${repository}`)
-      .query(`access_token=${process.env.ACCESS_TOKEN}`)
+      .query(`token=${process.env.ACCESS_TOKEN}`)
       .set('User-Agent', 'agent')
       .then((response) => {
         expect(response.status).to.equal(statusCode.OK);
