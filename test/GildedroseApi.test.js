@@ -107,4 +107,12 @@ describe('Test Gildedrose API endpoints', () => {
     expect(response.status).to.equal(statusCode.OK);
     expect(validationResponse.body.length).to.equal(1);
   });
+  
+  after(()=>{
+    const res = await agent.get(`${apiURL}/items`);
+    if (res.body.length > 0) {
+      res.body.forEach(async (item) => { await agent.delete(`${apiURL}/items/${item.id}`); });
+    }
+  })
+  
 });
