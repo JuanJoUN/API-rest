@@ -2,8 +2,8 @@ const agent = require('superagent');
 const statusCode = require('http-status-codes');
 const chai = require('chai');
 const jsonSchema = require('chai-json-schema');
-const { itemSchema } = require('../schema/Item.schema');
-const { itemListSchema } = require('../schema/ItemList.schema');
+const { itemSchema } = require('../../schema/Item.schema');
+const { itemListSchema } = require('../../schema/ItemList.schema');
 
 const { expect } = chai;
 chai.use(jsonSchema);
@@ -107,12 +107,11 @@ describe('Test Gildedrose API endpoints', () => {
     expect(response.status).to.equal(statusCode.OK);
     expect(validationResponse.body.length).to.equal(1);
   });
-  
-  after(()=>{
+
+  after(async () => {
     const res = await agent.get(`${apiURL}/items`);
     if (res.body.length > 0) {
       res.body.forEach(async (item) => { await agent.delete(`${apiURL}/items/${item.id}`); });
     }
-  })
-  
+  });
 });
