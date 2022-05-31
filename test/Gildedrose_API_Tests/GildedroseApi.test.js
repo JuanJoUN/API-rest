@@ -8,7 +8,7 @@ const { itemListSchema } = require('../../schema/ItemList.schema');
 const { expect } = chai;
 chai.use(jsonSchema);
 
-const apiURL = 'http://localhost:8080/api';
+const apiURL = 'http://3.233.167.141:8081/api';
 
 function random(min, max) {
   return Math.floor((Math.random() * (max - min + 1)) + min);
