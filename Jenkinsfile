@@ -22,7 +22,8 @@ pipeline {
                  reportTitles: 'Test report'])
                 script {
                     zip zipFile: 'ApiTesting.zip', archive: true, dir: '/var/lib/jenkins/workspace/cd-api_test/report/'
-                }
+                } 
+                archiveArtifacts artifacts: 'ApiTesting.zip', fingerprint: true
                 
             }
             
