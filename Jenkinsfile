@@ -27,7 +27,7 @@ pipeline {
     
     post {
         always {
-            sh "zip -r ApiTesting.zip report/"
+            sh "sudo zip -r ApiTesting.zip report/"
             emailext attachmentsPattern: '**/ApiTesting.zip', body: 'This is a test email', mimeType: 'text/html', subject: 'Build $BUILD_NUMBER - $BUILD_STATUS', to: 'grupo3.praxis@outlook.com'
         }   
     }
