@@ -27,7 +27,7 @@ pipeline {
     
     post {
         always {
-            emailext attachmentsPattern: 'report/ApiTesting.html', body: 'This is a test email', mimeType: 'text/html', subject: 'Build $BUILD_NUMBER - $BUILD_STATUS', to: 'grupo3.praxis@outlook.com'
+            emailext attachmentsPattern: '**/report/ApiTesting.html', body: 'This is a test email', mimeType: 'text/html', subject: 'Build $BUILD_NUMBER - $BUILD_STATUS', to: 'grupo3.praxis@outlook.com'
         }   
     }
 }
