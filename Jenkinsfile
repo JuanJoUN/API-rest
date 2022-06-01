@@ -24,4 +24,10 @@ pipeline {
             
         }
     }
+    
+    post {
+        always {
+            emailext body: readFile("report/ApiTesting.html") , mimeType: 'text/html', subject: 'Build $BUILD_NUMBER - $BUILD_STATUS', to: 'grupo3.praxis@outlook.com'
+        }   
+    }
 }
