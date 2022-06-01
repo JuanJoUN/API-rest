@@ -20,7 +20,7 @@ pipeline {
                  reportFiles: 'ApiTesting.html, assets/app.js',
                  reportName: 'Test report',
                  reportTitles: 'Test report'])
-                sh "zip -r ApiTesting.zip /report/"
+                sh "zip -r ApiTesting.zip report/"
                 
                 
             }
