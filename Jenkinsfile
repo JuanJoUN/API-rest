@@ -19,7 +19,8 @@ pipeline {
                  reportDir: '/var/lib/jenkins/workspace/cd-api_test/report/',
                  reportFiles: 'ApiTesting.html, assets/app.js',
                  reportName: 'Test report',
-                 reportTitles: 'Test report'])   
+                 reportTitles: 'Test report'])
+                zip zipFile: 'ApiTesting.zip', archive: true, dir: '/var/lib/jenkins/workspace/cd-api_test/report/'
             }
             
         }
@@ -27,8 +28,7 @@ pipeline {
     
     post {
         always {
-            sh "sudo zip -r ApiTesting.zip report/"
-            emailext attachmentsPattern: '**/ApiTesting.zip', body: 'This is a test email', mimeType: 'text/html', subject: 'Build $BUILD_NUMBER - $BUILD_STATUS', to: 'grupo3.praxis@outlook.com'
+            emailext attachmentsPattern: '**/report/ApiTesting.html', body: 'This is a test email', mimeType: 'text/html', subject: 'Build $BUILD_NUMBER - $BUILD_STATUS', to: 'grupo3.praxis@outlook.com'
         }   
     }
 }
