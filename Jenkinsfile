@@ -20,7 +20,10 @@ pipeline {
                  reportFiles: 'ApiTesting.html, assets/app.js',
                  reportName: 'Test report',
                  reportTitles: 'Test report'])
-                zip zipFile: 'ApiTesting.zip', archive: true, dir: '/var/lib/jenkins/workspace/cd-api_test/report/'
+                script {
+                    zip zipFile: 'ApiTesting.zip', archive: true, dir: '/var/lib/jenkins/workspace/cd-api_test/report/'
+                }
+                
             }
             
         }
