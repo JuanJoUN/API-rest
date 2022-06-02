@@ -21,7 +21,7 @@ pipeline {
                  reportName: 'Test report',
                  reportTitles: 'Test report'])
                 sh "zip -r ApiTesting.zip report/"
-                slackSend message:"Testing 3"
+                slackSend message:"You can acces by clicking http://3.233.167.141:8080/job/cd-api_test/$BUILD_NUMBER/Test_20report/"
                 
             }
             
