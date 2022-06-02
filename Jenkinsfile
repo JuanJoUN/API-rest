@@ -31,7 +31,7 @@ pipeline {
     post {
         always {
             slackUploadFile filePath: 'ApiTesting.zip', initialComment: 'This the test report for Build $BUILD_NUMBER', credentialId: 'slackCredential'
-            emailext attachmentsPattern: '**/ApiTesting.zip', body: 'This is a test email', mimeType: 'text/html', subject: 'Build $BUILD_NUMBER - $BUILD_STATUS', to: 'grupo3.praxis@outlook.com'
+            emailext attachmentsPattern: '**/ApiTesting.zip', body: 'Here is the file which contains the tests report', mimeType: 'text/html', subject: 'Build $BUILD_NUMBER - $BUILD_STATUS', to: 'grupo3.praxis@outlook.com'
         }   
     }
 }
