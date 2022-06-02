@@ -35,11 +35,11 @@ pipeline {
         }   
         
         failure {
-             slackUploadFile filePath: 'ApiTesting.zip', initialComment: 'This the test report for Build $BUILD_NUMBER', credentialId: 'slackCredential', color: 'danger'
+             slackUploadFile color: 'danger', filePath: 'ApiTesting.zip', initialComment: 'This the test report for Build $BUILD_NUMBER', credentialId: 'slackCredential'
         }
         
         success {
-             slackUploadFile filePath: 'ApiTesting.zip', initialComment: 'This the test report for Build $BUILD_NUMBER', credentialId: 'slackCredential', color: 'good'
+             slackUploadFile color: 'good', filePath: 'ApiTesting.zip', initialComment: 'This the test report for Build $BUILD_NUMBER', credentialId: 'slackCredential'
         }
     }
 }
