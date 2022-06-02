@@ -17,11 +17,11 @@ pipeline {
                  alwaysLinkToLastBuild: true,
                  keepAll: true,
                  reportDir: '/var/lib/jenkins/workspace/cd-api_test/report/',
-                 reportFiles: 'ApiTesting.html, assets/app.js',
+                 reportFiles: 'ApiTesting.html',
                  reportName: 'Test report',
                  reportTitles: 'Test report'])
                 sh "zip -r ApiTesting.zip report/"
-                slackSend message:"You can acces by clicking http://3.233.167.141:8080/job/cd-api_test/$BUILD_NUMBER/Test_20report/"
+                slackSend message:"You can access by clicking http://3.233.167.141:8080/job/cd-api_test/$BUILD_NUMBER/Test_20report/ or checking your mail inbox"
                 
             }
             
