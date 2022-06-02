@@ -21,7 +21,7 @@ pipeline {
                  reportName: 'Test report',
                  reportTitles: 'Test report'])
                 sh "zip -r ApiTesting.zip report/"
-                slackSend message:"-- $JOB_NAME -- You can access the tests report by clicking http://3.233.167.141:8080/job/cd-api_test/$BUILD_NUMBER/Test_20report/ or checking your mail inbox"
+                
                 
             }
             
@@ -35,11 +35,11 @@ pipeline {
         }   
         
         failure {
-             slackUploadFile color: 'danger', filePath: 'ApiTesting.zip', initialComment: 'This the test report for Build $BUILD_NUMBER', credentialId: 'slackCredential'
+             slackSend color:'danger', message:"-- $JOB_NAME -- You can access the tests report by clicking http://3.233.167.141:8080/job/cd-api_test/$BUILD_NUMBER/Test_20report/ or checking your mail inbox"
         }
         
         success {
-             slackUploadFile color: 'good', filePath: 'ApiTesting.zip', initialComment: 'This the test report for Build $BUILD_NUMBER', credentialId: 'slackCredential'
+            slackSend color:'good', message:"-- $JOB_NAME -- You can access the tests report by clicking http://3.233.167.141:8080/job/cd-api_test/$BUILD_NUMBER/Test_20report/ or checking your mail inbox"
         }
     }
 }
