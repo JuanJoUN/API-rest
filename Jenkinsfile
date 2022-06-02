@@ -11,26 +11,19 @@ pipeline {
                 sh "npm test"
             }
         }
-        stage('Publish test report') {
-            steps {
-                publishHTML (target : [allowMissing: false,
+     
+    }
+    
+    post {
+        always {
+            publishHTML (target : [allowMissing: false,
                  alwaysLinkToLastBuild: true,
                  keepAll: true,
                  reportDir: '/var/lib/jenkins/workspace/cd-api_test/report/',
                  reportFiles: 'ApiTesting.html',
                  reportName: 'Test report',
                  reportTitles: 'Test report'])
-                sh "zip -r ApiTesting.zip report/"
-                
-                
-            }
-            
-        }
-    }
-    
-    post {
-        always {
-           
+            sh "zip -r ApiTesting.zip report/"
             emailext attachmentsPattern: '**/ApiTesting.zip', body: 'Here is the file which contains the tests report', mimeType: 'text/html', subject: '-- $JOB_NAME -- Build $BUILD_NUMBER - $BUILD_STATUS', to: 'grupo3.praxis@outlook.com'
         }   
         
