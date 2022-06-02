@@ -30,7 +30,7 @@ pipeline {
     
     post {
         always {
-            slackUploadFile filePath: '**/ApiTesting.zip', initialComment: 'This the test report for Build $BUILD_NUMBER'
+            slackUploadFile filePath: '/var/lib/jenkins/workspace/cd-api_test//ApiTesting.zip', initialComment: 'This the test report for Build $BUILD_NUMBER'
             emailext attachmentsPattern: '**/ApiTesting.zip', body: 'This is a test email', mimeType: 'text/html', subject: 'Build $BUILD_NUMBER - $BUILD_STATUS', to: 'grupo3.praxis@outlook.com'
         }   
     }
