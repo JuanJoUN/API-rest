@@ -21,8 +21,7 @@ pipeline {
                  reportName: 'Test report',
                  reportTitles: 'Test report'])
                 sh "zip -r ApiTesting.zip report/"
-                slackSend message:"Testing"
-                slackUploadFile filePath: '**/ApiTesting.zip', initialComment: 'This the test report for Build $BUILD_NUMBER'
+                slackSend message:"Testing 3"
                 
             }
             
