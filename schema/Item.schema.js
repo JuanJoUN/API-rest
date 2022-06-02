@@ -5,7 +5,7 @@ const itemSchema = {
         "type": "integer"
       },
       "name": {
-        "type": "integer"
+        "type": "string"
       },
       "sellIn": {
         "type": "integer"
